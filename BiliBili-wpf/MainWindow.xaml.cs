@@ -13,28 +13,19 @@ public partial class MainWindow : Window
 
         // 设置DataContext
         // DataContext = App.Services.GetRequiredService<MainViewModel>();
-
         CommandBindings.Add(new CommandBinding(SystemCommands.MinimizeWindowCommand,
             (sender, e) => SystemCommands.MinimizeWindow(this)));
+        CommandBindings.Add(new CommandBinding(SystemCommands.CloseWindowCommand,
+            (sender, e) => SystemCommands.CloseWindow(this)));
+        CommandBindings.Add(new CommandBinding(SystemCommands.MaximizeWindowCommand,
+            (sender, e) => SystemCommands.MaximizeWindow(this)));
+        CommandBindings.Add(new CommandBinding(SystemCommands.RestoreWindowCommand,
+            (sender, e) => SystemCommands.RestoreWindow(this)));
     }
 
     private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
     {
         var themeService = App.Services.GetRequiredService<IThemeService>();
         themeService.CurrentTheme = themeService.CurrentTheme==ThemeType.Dark ? ThemeType.Light : ThemeType.Dark;
-    }
-    
-    private void MaximizeButton_Click(object sender, RoutedEventArgs e)
-    {
-        // 切换最大化/还原状态
-        this.WindowState = (this.WindowState == WindowState.Maximized) 
-            ? WindowState.Normal 
-            : WindowState.Maximized;
-    }
-    
-    private void CloseButton_Click(object sender, RoutedEventArgs e)
-    {
-        // 关闭窗口
-        this.Close();
     }
 }
