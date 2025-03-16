@@ -1,6 +1,8 @@
 using BiliBili_Model.Api.Models;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json;
 
 namespace BiliBili_Model.Api;
 
@@ -10,13 +12,15 @@ namespace BiliBili_Model.Api;
 public class BiliBiliApiClient : IBiliBiliApiClient
 {
     private readonly IHttpClientService _httpClient;
+    private readonly JsonSerializerOptions _jsonOptions;
     
     // API基础URL
     private const string BaseUrl = "https://api.bilibili.com";
-    private const string AppBaseUrl = "https://app.bilibili.com";
+    private const string AppBaseUrl = "https://app.bilibili.com"; 
     private const string PassportBaseUrl = "https://passport.bilibili.com";
     private const string LiveBaseUrl = "https://api.live.bilibili.com";
-    
+
+    private const string RecommendVideoUrl = $"{BaseUrl}/x/web-interface/wbi/index/top/feed/rcmd";
     // 用户认证信息
     private string? _accessToken;
     private string? _refreshToken;
@@ -28,153 +32,85 @@ public class BiliBiliApiClient : IBiliBiliApiClient
     
     public BiliBiliApiClient(IHttpClientService httpClient)
     {
-        _httpClient = httpClient;
-    }
-    
-    /// <summary>
-    /// 设置用户认证信息
-    /// </summary>
-    public void SetAuthInfo(string accessToken, string refreshToken, long userId)
-    {
-        _accessToken = accessToken;
-        _refreshToken = refreshToken;
-        _userId = userId;
-    }
-    
-    /// <summary>
-    /// 获取请求头，包含认证信息
-    /// </summary>
-    private Dictionary<string, string> GetAuthHeaders()
-    {
-        var headers = new Dictionary<string, string>();
+        _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
         
-        if (!string.IsNullOrEmpty(_accessToken))
+        // 配置JSON序列化选项
+        _jsonOptions = new JsonSerializerOptions
         {
-            headers.Add("Authorization", $"Bearer {_accessToken}");
-        }
-        
-        return headers;
-    }
-    
-    /// <summary>
-    /// 登录
-    /// </summary>
-    /// <param name="username">用户名</param>
-    /// <param name="password">密码</param>
-    /// <returns>登录响应</returns>
-    public async Task<ApiResponse<LoginResponse>?> LoginAsync(string username, string password)
-    {
-        // 构建登录参数
-        var parameters = new Dictionary<string, string>
-        {
-            { "username", username },
-            { "password", password },
-            { "appkey", AppKey },
-            { "platform", "web" },
-            { "ts", DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString() }
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            WriteIndented = false,
+            PropertyNameCaseInsensitive = true
         };
-        
-        // 添加签名
-        parameters.Add("sign", GenerateSign(parameters));
-        
-        // 发送登录请求
-        var url = $"{PassportBaseUrl}/x/passport-login/oauth2/login";
-        var response = await _httpClient.PostFormAsync<ApiResponse<LoginResponse>>(url, parameters);
-        
-        // 如果登录成功，保存认证信息
-        if (response != null && response.IsSuccess && response.Data != null)
-        {
-            SetAuthInfo(response.Data.AccessToken, response.Data.RefreshToken, response.Data.UserId);
-        }
-        
-        return response;
     }
     
-    /// <summary>
-    /// 获取当前登录用户信息
-    /// </summary>
-    /// <returns>用户信息</returns>
-    public async Task<ApiResponse<UserInfo>?> GetCurrentUserInfoAsync()
+
+    private async Task<Result<T>> ExecuteApiRequestAsync<T>(Func<Task<ApiResponse<T>>> requestFunc, [CallerMemberName] string operatorName = "")
     {
-        if (_userId <= 0)
+        try
         {
-            throw new InvalidOperationException("用户未登录");
+            var apiResponse = await requestFunc();
+            return apiResponse.Code == 0 ?
+                Result<T>.Success(apiResponse.Data) : Result<T>.Fail(apiResponse.Message, apiResponse.Code);
         }
-        
-        return await GetUserInfoAsync(_userId);
+        catch (HttpRequestException httpEx)
+        {
+            return Result<T>.Fail($"{operatorName}: {httpEx.Message}");
+        }
+        catch (JsonException jsonEx)
+        {
+            return Result<T>.Fail($"JSON解析错误: {jsonEx.Message}");
+        }
+        catch (Exception ex)
+        {
+            return Result<T>.Fail($"{operatorName}: {ex.Message}");
+        }
     }
-    
-    /// <summary>
-    /// 获取指定用户信息
-    /// </summary>
-    /// <param name="userId">用户ID</param>
-    /// <returns>用户信息</returns>
-    public async Task<ApiResponse<UserInfo>?> GetUserInfoAsync(long userId)
+
+    private async Task<Result> ExecuteApiRequestAsync(Func<Task<ApiResponse>> requestFunc, [CallerMemberName] string operatorName = "")
     {
-        var url = $"{BaseUrl}/x/space/acc/info?mid={userId}";
-        return await _httpClient.GetAsync<ApiResponse<UserInfo>>(url, GetAuthHeaders());
-    }
-    
-    /// <summary>
-    /// 退出登录
-    /// </summary>
-    /// <returns>操作结果</returns>
-    public async Task<ApiResponse<object>?> LogoutAsync()
-    {
-        if (string.IsNullOrEmpty(_accessToken))
+        try
         {
-            throw new InvalidOperationException("用户未登录");
+            var apiResponse = await requestFunc();
+            return apiResponse.Code == 0 ?
+                Result.Success() : Result.Fail(apiResponse.Message, apiResponse.Code);
         }
-        
-        var parameters = new Dictionary<string, string>
+        catch (HttpRequestException httpEx)
         {
-            { "access_token", _accessToken },
-            { "appkey", AppKey },
-            { "ts", DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString() }
-        };
-        
-        // 添加签名
-        parameters.Add("sign", GenerateSign(parameters));
-        
-        var url = $"{PassportBaseUrl}/x/passport-login/oauth2/revoke";
-        var response = await _httpClient.PostFormAsync<ApiResponse<object>>(url, parameters);
-        
-        // 清除认证信息
-        if (response != null && response.IsSuccess)
-        {
-            _accessToken = null;
-            _refreshToken = null;
-            _userId = 0;
+            return Result.Fail($"{operatorName}: {httpEx.Message}");
         }
-        
-        return response;
+        catch (JsonException jsonEx)
+        {
+            return Result.Fail($"JSON解析错误: {jsonEx.Message}");
+        }
+        catch (Exception ex)
+        {
+            return Result.Fail($"{operatorName}: {ex.Message}");
+        }
     }
+
     
-    /// <summary>
-    /// 生成API请求签名
-    /// </summary>
-    /// <param name="parameters">请求参数</param>
-    /// <returns>签名</returns>
     private string GenerateSign(Dictionary<string, string> parameters)
     {
-        // 按照参数名排序
+        // 按照参数名称排序
         var sortedParams = parameters.OrderBy(p => p.Key).ToList();
         
         // 构建签名字符串
-        var builder = new StringBuilder();
-        foreach (var param in sortedParams)
-        {
-            builder.Append($"{param.Key}={param.Value}");
-        }
+        var signStr = string.Join("&", sortedParams.Select(p => $"{p.Key}={p.Value}")) + AppSecret;
         
-        // 添加密钥
-        builder.Append(AppSecret);
-        
-        // 计算MD5
+        // 计算MD5哈希
         using var md5 = MD5.Create();
-        var bytes = md5.ComputeHash(Encoding.UTF8.GetBytes(builder.ToString()));
+        var hash = md5.ComputeHash(Encoding.UTF8.GetBytes(signStr));
         
         // 转换为小写十六进制字符串
-        return BitConverter.ToString(bytes).Replace("-", "").ToLower();
+        return BitConverter.ToString(hash).Replace("-", "").ToLower();
+    }
+
+
+
+    public async Task<Result<RecommendVideoModel>> GetRecommendVideos()
+    {
+        var result = await ExecuteApiRequestAsync(() => 
+            _httpClient.GetAsync<RecommendVideoModel>(RecommendVideoUrl));
+        return result;
     }
 } 

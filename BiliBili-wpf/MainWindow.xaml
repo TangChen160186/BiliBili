@@ -3,10 +3,71 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BiliBili_wpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" MinHeight="658" MinWidth="1080" Height="658" Width="1080" >
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="80" 
+                      NonClientFrameEdges="None" 
+                      CornerRadius="8"
+                      ResizeBorderThickness="5" 
+                      GlassFrameThickness="1"
+                      UseAeroCaptionButtons="False" />
+    </WindowChrome.WindowChrome>
+
+    <!-- 确保加载主题资源 -->
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Themes/Dark/Theme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <Window.Template>
+        <ControlTemplate TargetType="Window">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="68"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Background="#1e2022">
+
+                </Border>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,20,0">
+                            <!-- 使用样式但不使用Command，而是使用Click事件 -->
+                            <Button x:Name="MinimizeBtn" 
+                                    Style="{StaticResource Btn-Minimum}" 
+                                    WindowChrome.IsHitTestVisibleInChrome="True"/>
+                            <Button Content="最大化" 
+                                    Click="MaximizeButton_Click"
+                                    WindowChrome.IsHitTestVisibleInChrome="True"
+                                    Width="24" Height="24" Margin="10,0"/>
+                            <Button Content="关闭" 
+                                    Click="CloseButton_Click"
+                                    WindowChrome.IsHitTestVisibleInChrome="True"
+                                    Width="24" Height="24"/>
+                        </StackPanel>
+                    </Grid>
+                    
+                    <!-- 添加内容呈现器，显示窗口内容 -->
+                    <ContentPresenter Grid.Row="1" Content="{TemplateBinding Content}"/>
+                </Grid>
+            </Grid>
+        </ControlTemplate>
+    </Window.Template>
+    
+    <!-- 窗口内容 -->
     <Grid>
-          
+        <TextBlock Text="窗口内容区域" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="24"/>
     </Grid>
 </Window>

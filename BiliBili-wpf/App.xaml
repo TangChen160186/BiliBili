@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:BiliBili_wpf"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+         <ResourceDictionary Source="/Themes/Dark/Theme.xaml"/>
     </Application.Resources>
 </Application>
