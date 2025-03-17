@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 using BiliBili_wpf.Services;
+using BiliBili_wpf.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BiliBili_wpf;
@@ -10,7 +11,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-
+        DataContext = App.Services.GetRequiredService<MainViewModel>();
         // 设置DataContext
         // DataContext = App.Services.GetRequiredService<MainViewModel>();
         CommandBindings.Add(new CommandBinding(SystemCommands.MinimizeWindowCommand,

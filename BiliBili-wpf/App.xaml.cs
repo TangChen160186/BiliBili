@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using BiliBili_ViewModel.Services;
 using BiliBili_wpf.Services;
+using BiliBili_wpf.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BiliBili_wpf;
@@ -32,11 +33,8 @@ public partial class App : Application
         services.AddBiliBiliServices();
         services.AddSingleton<IThemeService,ThemeService>();
 
-        // 注册视图模型
-        // services.AddTransient<MainViewModel>();
-
-        // 注册视图
-        // services.AddTransient<MainWindow>();
+        // ViewModels
+        services.AddTransient<MainViewModel>();
     }
 }
 
