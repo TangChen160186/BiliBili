@@ -1,4 +1,12 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush Color="Black" x:Key="TestColor"/>
+    <SolidColorBrush Color="#ffffff" x:Key="WindowBackgroundBrush"/>
+    <SolidColorBrush Color="#e3e5e7" x:Key="SystemButtonHoverBackgroundBrush"/>
+    <SolidColorBrush Color="#61666d" x:Key="SystemButtonForegroundBrush"/>
+    <SolidColorBrush Color="#ff6699" x:Key="ThemePink"/>
+    <SolidColorBrush Color="#f6f7f8" x:Key="MainNavigationBarBackGround"/>
+    <SolidColorBrush Color="#61666d" x:Key="MainNavigationButtonForegroundBrush"/>
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/;component/Themes/Controls/ImageDraw.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

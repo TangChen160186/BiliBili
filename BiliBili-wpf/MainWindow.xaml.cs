@@ -27,6 +27,6 @@ public partial class MainWindow : Window
     private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
     {
         var themeService = App.Services.GetRequiredService<IThemeService>();
-        themeService.CurrentTheme = themeService.CurrentTheme==ThemeType.Dark ? ThemeType.Light : ThemeType.Dark;
+        themeService.CurrentTheme = themeService.CurrentTheme == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark;
     }
 }

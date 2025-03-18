@@ -1,0 +1,217 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DrawingImage x:Key="MinimumButtonDrawingImage">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V1024 H1024 V0 H0 Z">
+                <GeometryDrawing Brush="{DynamicResource SystemButtonForegroundBrush}" Geometry="F1 M1024,1024z M0,0z M853.333333,554.666667L170.666667,554.666667C147.2,554.666667 128,535.466667 
+      128,512 128,488.533333 147.2,469.333333 170.666667,469.333333L853.333333,469.333333C876.8,469.333333 896,488.533333 896,512 896,535.466667 876.8,554.666667 853.333333,554.666667z" />
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="CloseButtonDrawingImage">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V1024 H1024 V0 H0 Z">
+                <GeometryDrawing Brush="{DynamicResource SystemButtonForegroundBrush}"
+                                 Geometry="F1 M1024,1024z M0,0z M567.68,511.914667L822.485333,257.28A39.253333,
+                                 39.253333,0,0,0,822.485333,201.685333A39.253333,39.253333,0,0,0,766.890667,201.685333L512
+                                 ,456.192 257.109333,201.6A39.253333,39.253333,0,0,0,201.514667,201.6A39.253333,
+                                 39.253333,0,0,0,201.514667,257.194667L456.32,511.786667 201.514667,
+                                 766.506667A39.253333,39.253333,0,0,0,229.290667,833.578667C239.402667,
+                                 833.578667,249.386667,829.781334,257.109333,822.101333L512,567.509333 766.890667,
+                                 822.229333C774.570667,829.909333,784.597334,833.706666,794.709333,833.706667A39.253333,39.253333,0,0,0,822.528,766.592L567.68,511.872z">
+
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="MaximizeButtonDrawingImage">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V1024 H1024 V0 H0 Z">
+                <GeometryDrawing Brush="{DynamicResource SystemButtonForegroundBrush}" Geometry="F1 M1024,1024z M0,0z M854.9,762.9L745.2,762.9 745.2,698.9 854.9,698.9C868.6,698.9,879.8,687.7,879.8,674L879.8,170.5C879.8,156.8,868.6,145.6,854.9,145.6L351.5,145.6C337.8,145.6,326.6,156.8,326.6,170.5L326.6,292.4 262.6,292.4 262.6,170.5C262.6,121.5,302.5,81.6,351.5,81.6L854.9,81.6C903.9,81.6,943.8,121.5,943.8,170.5L943.8,674C943.8,723,903.9,762.9,854.9,762.9z" />
+                <GeometryDrawing Brush="{DynamicResource SystemButtonForegroundBrush}" Geometry="F1 M1024,1024z M0,0z M671.5,945.3L182.4,945.3C125.1,945.3,78.4,898.6,78.4,841.3L78.4,352.2C78.4,294.9,125.1,248.2,182.4,248.2L671.5,248.2C728.8,248.2,775.5,294.9,775.5,352.2L775.5,841.3C775.5,898.6,728.8,945.3,671.5,945.3z M182.4,312.2C160.3,312.2,142.4,330.1,142.4,352.2L142.4,841.3C142.4,863.4,160.3,881.3,182.4,881.3L671.5,881.3C693.6,881.3,711.5,863.4,711.5,841.3L711.5,352.2C711.5,330.1,693.6,312.2,671.5,312.2L182.4,312.2z" />
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+    <DrawingImage x:Key="NormalButtonDrawingImage">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V1024 H1024 V0 H0 Z">
+                <GeometryDrawing Brush="{DynamicResource SystemButtonForegroundBrush}" Geometry="F1 M1024,1024z M0,0z M287.195429,133.485714L736.804571,133.485714A153.709714,153.709714,0,0,1,890.514286,287.195429L890.514286,736.804571A153.709714,153.709714,0,0,1,736.804571,890.514286L287.195429,890.514286A153.709714,153.709714,0,0,1,133.485714,736.804571L133.485714,287.195429A153.709714,153.709714,0,0,1,287.195429,133.485714z M287.195429,195.657143A91.538286,91.538286,0,0,0,195.657143,287.195429L195.657143,736.804571A91.538286,91.538286,0,0,0,287.195429,828.342857L736.804571,828.342857A91.538286,91.538286,0,0,0,828.342857,736.804571L828.342857,287.195429A91.538286,91.538286,0,0,0,736.804571,195.657143L287.195429,195.657143z" />
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+
+    <DrawingImage x:Key="BiliBiliIconDrawingImage">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V1024 H2332 V0 H0 Z">
+                <GeometryDrawing Brush="{DynamicResource ThemePink}" Geometry="F1 M2332,1024z M0,0z M1800.969308,
+      322.460675C1807.110333,323.484179 1854.873861,312.964831 1856.920869,316.433372 1859.991382,
+      320.982279 1881.371246,472.347174 1875.685113,473.370678 1870.112701,474.337321 1830.480346,
+      483.378274 1830.480345,483.378275 1827.409832,462.794469 1801.48106,335.538784 1800.969308,
+      322.460675 M1877.27723,307.961032L1898.088482,470.811918C1908.778414,470.300166,1951.993035,
+      467.286515,1956.087051,466.831624A19146.919937,19146.919937,0,0,0,1939.312955,307.961032A161.486213,
+      161.486213,0,0,0,1877.27723,307.961032 M1836.052757,533.928008C1836.052757,533.928008 1930.158279,
+      510.330551 1964.218223,521.873404 1981.504071,583.5111 2013.005255,929.341786 2016.075768,
+      943.386537 1994.695903,945.888436 1924.529006,951.915738 1918.956594,953.394134 1914.407687,
+      927.351639 1836.052756,550.474659 1836.052757,533.928008 M2184.385342,326.384107C2189.957754,
+      327.919363 2239.76829,321.43717 2240.280042,324.905712 2241.303546,336.960317 2246.421067,
+      482.297909 2240.848656,482.809661L2195.530165,486.789955C2194.563522,466.774762,2183.361838,
+      339.973968,2184.385342,326.440969 M2261.148155,322.460675L2265.242172,483.321413C2275.875243,
+      
+      483.321413 2318.578111,485.823312 2323.18388,485.31156 2322.160376,423.673864 2323.18388,326.440968 2323.18388,326.440969A284.932188,284.932188,0,0,0,2261.148155,322.460675 M2195.530165,538.476916C2195.530165,
+      538.476916 2291.625834,525.967421 2324.207384,540.978815 2331.315052,613.19272 2330.291548,949.470701 2331.315052,963.458591 2309.423435,963.458591 2239.76829,964.482095 2234.195878,965.5056 2233.172374,
+                                 939.406244 2194.05177,554.966706 2195.530165,538.476916 M1972.349395,124.981231C2027.789204,403.658672 2069.98032,879.758694 2071.515577,910.350097 2071.515577,910.350097 2115.24195,
+                                 911.373601 2164.540734,914.330391 2135.541449,614.159363 2099.946249,134.533937 2100.458,119.01079 2088.289673,105.47779 1972.349395,124.981231 1972.349395,124.981231 M1850.268092,
+                                 784.117916C1839.57816,705.93357 1555.840059,617.229875 1396.173409,645.774269 1396.173409,645.774269 1376.385662,473.370678 1368.709381,306.482637A3414.182463,3414.182463,0,0,1,1369.277994,
+                                 0.73919699999999C1358.588062,-6.76650000000001 1243.614427,47.365498 1181.635563,69.939452 1181.635563,69.939452 1255.839615,379.663186 1309.744168,1022.196358 1309.744168,1022.196358 1395.661657,
+                                 1031.18045 1543.15998,1003.147808 1690.601442,975.058305 1864.99518,887.378114 1850.211231,784.117916 M1503.470763,924.963462L1478.565495,748.010964C1484.649659,744.997313 1637.720393,801.176319 1653.982737,
+                                 811.183915 1651.423977,822.215015 1503.470763,924.9066 1503.470763,924.906601 M619.333745,322.517536C625.417909,323.54104 673.181437,313.021692 675.228445,316.490234 678.298958,321.039141 699.678822,
+                                 472.404036 694.049549,473.42754 688.477137,474.394183 648.78792,483.435136 648.787921,483.435136 645.77427,462.85133 619.788636,335.595645 619.333745,322.517536 M695.527944,308.017894L716.452918,
+                                 470.811918C727.085989,470.300166 770.30061,467.286515 774.394627,466.831624 767.798711,405.193928 757.620531,307.961032 757.62053,307.961032A161.486213,161.486213,0,0,0,695.584806,307.961032 M654.417193,533.98487C654.417193,533.98487 748.465854,510.387413 782.525799,521.930265 799.811647,583.567961 831.369692,929.398647 834.383343,943.443399 813.060339,945.945298 742.836581,951.9726 737.26417,953.450995 732.715263,927.4085 654.417194,550.53152 654.417193,533.98487 M1002.692918,326.440969C1008.26533,327.976225 1058.132727,321.494032 1058.644479,324.962574 1059.667983,337.017179 1064.728643,482.354771 1059.156231,482.866522L1013.894602,486.846816C1012.871098,466.831623,1002.181165,340.030829,1002.692918,326.49783 M1079.45573,322.517536L1083.549747,483.378275C1094.239679,483.378275 1136.942548,485.880174 1141.548317,485.368422 1140.467951,423.730726 1141.548317,326.49783 1141.548317,326.49783A320.072498,320.072498,0,0,0,1079.45573,322.517536 M1013.894602,538.476916C1013.894602,538.476916 1109.990271,525.967421 1142.514959,540.978815 1149.622627,613.19272 1148.599123,949.470701 1149.622627,963.458591 1127.787871,963.458591 1058.075865,964.482095 1052.503454,965.5056 1051.991702,939.406244 1012.359346,554.966706 1013.837741,538.476916 M790.656971,124.981231C846.09678,403.715533 888.287896,879.758695 889.880014,910.350097 889.880014,910.350097 933.606387,911.373601 982.90517,914.330391 953.905885,614.159363 918.367546,134.533937 918.879298,118.499038 906.654109,105.420929 790.713831,124.981231 790.713832,124.981231 M668.68939,784.117916C657.999458,705.93357 374.261357,617.229875 214.651569,645.774269 214.651569,645.774269 194.750099,473.370678 187.18754,306.482637A3414.182463,3414.182463,0,0,1,187.642431,0.682336C176.952499,-6.254748 61.978864,47.308637 0,69.939452 0,69.939452 74.260914,379.663186 128.108605,1022.196358 128.108605,1022.196358 214.082955,1031.18045 361.524417,1003.147808 508.965879,975.058305 683.359617,887.378114 668.632529,784.117916 M321.8352,924.906601L296.929932,747.954102C303.070957,744.940451 456.141692,801.119457 472.347174,811.127054 469.845275,822.158154 321.8352,924.849739 321.8352,924.849739" />
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+
+    <Style TargetType="Button" x:Key="Btn-Minimum">
+        <Setter Property="Width" Value="32"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="Padding" Value="4"/>
+        <Setter Property="Command" Value="{Binding Source={x:Static SystemCommands.MinimizeWindowCommand}}"/>
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}"
+                            CornerRadius="4"
+                            Padding="{TemplateBinding Padding}"
+                            Background="Transparent"
+                            x:Name="Border">
+                        <Image Source="{DynamicResource MinimumButtonDrawingImage}" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="Border" 
+                                    Value="{DynamicResource SystemButtonHoverBackgroundBrush}"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Button" x:Key="Btn-Close">
+        <Setter Property="Width" Value="32"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="Padding" Value="4"/>
+        <Setter Property="Command" Value="{Binding 
+            Source={x:Static SystemCommands.CloseWindowCommand}}"/>
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}"
+                            CornerRadius="4"
+                            Padding="{TemplateBinding Padding}"
+                            Background="Transparent"
+                            x:Name="Border">
+                        <Image Source="{DynamicResource CloseButtonDrawingImage}" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="Border" 
+                                    Value="{DynamicResource SystemButtonHoverBackgroundBrush}"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style TargetType="ToggleButton" x:Key="Btn-NormalMax">
+        <Setter Property="Width" Value="32"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="Padding" Value="4"/>
+        <Setter Property="IsChecked" Value="True"/>
+        <Setter Property="Command" Value="{Binding 
+            Source={x:Static SystemCommands.MaximizeWindowCommand}}"/>
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Border Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}"
+                            CornerRadius="4"
+                            Padding="{TemplateBinding Padding}"
+                            Background="Transparent"
+                            x:Name="Border">
+                        <Image x:Name="Image" Source="{DynamicResource MaximizeButtonDrawingImage}" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="Border" 
+                                    Value="{DynamicResource SystemButtonHoverBackgroundBrush}"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="Image" Property="Source"
+                                    Value="{DynamicResource NormalButtonDrawingImage}"/>
+
+                            <Setter Property="Command" Value="{Binding Source={x:Static SystemCommands.RestoreWindowCommand}}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter TargetName="Image" Property="Source"
+                                    Value="{DynamicResource MaximizeButtonDrawingImage}"/>
+                            <Setter Property="Command" 
+                                    Value="{Binding Source={x:Static SystemCommands.MaximizeWindowCommand}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style TargetType="ListBoxItem" x:Key="MainNavigationItemContainerStyle">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Foreground" Value="{DynamicResource MainNavigationButtonForegroundBrush}"/>
+        <Setter Property="Height" Value="48"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Margin" Value="0,18,0,0"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border Background="Transparent">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource ThemePink}"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="IsSelected" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Foreground" Value="{DynamicResource ThemePink}"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
