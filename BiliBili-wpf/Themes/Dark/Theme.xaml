@@ -6,9 +6,7 @@
     <SolidColorBrush Color="#d44e7d" x:Key="ThemePink"/>
     <SolidColorBrush Color="#1e2022" x:Key="MainNavigationBarBackGround"/>
     <SolidColorBrush Color="#a2a7ae" x:Key="MainNavigationButtonForegroundBrush"/>
-
     <ResourceDictionary.MergedDictionaries>
-
         <ResourceDictionary Source="pack://application:,,,/;component/Themes/Controls/ImageDraw.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

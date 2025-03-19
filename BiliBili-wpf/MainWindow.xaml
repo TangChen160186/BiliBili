@@ -27,7 +27,6 @@
                 <TextBlock Text="{Binding Name}" 
                            HorizontalAlignment="Center" 
                            VerticalAlignment="Center" 
-                           Foreground="#70726f"
                            Margin="0,4,0,0"/>
             </StackPanel>
         </DataTemplate>

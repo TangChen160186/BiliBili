@@ -45,4 +45,8 @@
     <Folder Include="Views\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="XamlFlair.WPF" Version="1.2.13" />
+  </ItemGroup>
+
 </Project>

@@ -3,7 +3,8 @@
     <DrawingImage x:Key="MinimumButtonDrawingImage">
         <DrawingImage.Drawing>
             <DrawingGroup ClipGeometry="M0,0 V1024 H1024 V0 H0 Z">
-                <GeometryDrawing Brush="{DynamicResource SystemButtonForegroundBrush}" Geometry="F1 M1024,1024z M0,0z M853.333333,554.666667L170.666667,554.666667C147.2,554.666667 128,535.466667 
+                <GeometryDrawing Brush="{DynamicResource SystemButtonForegroundBrush}"
+                                 Geometry="F1 M1024,1024z M0,0z M853.333333,554.666667L170.666667,554.666667C147.2,554.666667 128,535.466667 
       128,512 128,488.533333 147.2,469.333333 170.666667,469.333333L853.333333,469.333333C876.8,469.333333 896,488.533333 896,512 896,535.466667 876.8,554.666667 853.333333,554.666667z" />
             </DrawingGroup>
         </DrawingImage.Drawing>
@@ -25,28 +26,29 @@
             </DrawingGroup>
         </DrawingImage.Drawing>
     </DrawingImage>
-
     <DrawingImage x:Key="MaximizeButtonDrawingImage">
         <DrawingImage.Drawing>
             <DrawingGroup ClipGeometry="M0,0 V1024 H1024 V0 H0 Z">
-                <GeometryDrawing Brush="{DynamicResource SystemButtonForegroundBrush}" Geometry="F1 M1024,1024z M0,0z M854.9,762.9L745.2,762.9 745.2,698.9 854.9,698.9C868.6,698.9,879.8,687.7,879.8,674L879.8,170.5C879.8,156.8,868.6,145.6,854.9,145.6L351.5,145.6C337.8,145.6,326.6,156.8,326.6,170.5L326.6,292.4 262.6,292.4 262.6,170.5C262.6,121.5,302.5,81.6,351.5,81.6L854.9,81.6C903.9,81.6,943.8,121.5,943.8,170.5L943.8,674C943.8,723,903.9,762.9,854.9,762.9z" />
-                <GeometryDrawing Brush="{DynamicResource SystemButtonForegroundBrush}" Geometry="F1 M1024,1024z M0,0z M671.5,945.3L182.4,945.3C125.1,945.3,78.4,898.6,78.4,841.3L78.4,352.2C78.4,294.9,125.1,248.2,182.4,248.2L671.5,248.2C728.8,248.2,775.5,294.9,775.5,352.2L775.5,841.3C775.5,898.6,728.8,945.3,671.5,945.3z M182.4,312.2C160.3,312.2,142.4,330.1,142.4,352.2L142.4,841.3C142.4,863.4,160.3,881.3,182.4,881.3L671.5,881.3C693.6,881.3,711.5,863.4,711.5,841.3L711.5,352.2C711.5,330.1,693.6,312.2,671.5,312.2L182.4,312.2z" />
+                <GeometryDrawing Brush="{DynamicResource SystemButtonForegroundBrush}"
+                                 Geometry="F1 M1024,1024z M0,0z M854.9,762.9L745.2,762.9 745.2,698.9 854.9,698.9C868.6,698.9,879.8,687.7,879.8,674L879.8,170.5C879.8,156.8,868.6,145.6,854.9,145.6L351.5,145.6C337.8,145.6,326.6,156.8,326.6,170.5L326.6,292.4 262.6,292.4 262.6,170.5C262.6,121.5,302.5,81.6,351.5,81.6L854.9,81.6C903.9,81.6,943.8,121.5,943.8,170.5L943.8,674C943.8,723,903.9,762.9,854.9,762.9z" />
+                <GeometryDrawing Brush="{DynamicResource SystemButtonForegroundBrush}"
+                                 Geometry="F1 M1024,1024z M0,0z M671.5,945.3L182.4,945.3C125.1,945.3,78.4,898.6,78.4,841.3L78.4,352.2C78.4,294.9,125.1,248.2,182.4,248.2L671.5,248.2C728.8,248.2,775.5,294.9,775.5,352.2L775.5,841.3C775.5,898.6,728.8,945.3,671.5,945.3z M182.4,312.2C160.3,312.2,142.4,330.1,142.4,352.2L142.4,841.3C142.4,863.4,160.3,881.3,182.4,881.3L671.5,881.3C693.6,881.3,711.5,863.4,711.5,841.3L711.5,352.2C711.5,330.1,693.6,312.2,671.5,312.2L182.4,312.2z" />
             </DrawingGroup>
         </DrawingImage.Drawing>
     </DrawingImage>
     <DrawingImage x:Key="NormalButtonDrawingImage">
         <DrawingImage.Drawing>
             <DrawingGroup ClipGeometry="M0,0 V1024 H1024 V0 H0 Z">
-                <GeometryDrawing Brush="{DynamicResource SystemButtonForegroundBrush}" Geometry="F1 M1024,1024z M0,0z M287.195429,133.485714L736.804571,133.485714A153.709714,153.709714,0,0,1,890.514286,287.195429L890.514286,736.804571A153.709714,153.709714,0,0,1,736.804571,890.514286L287.195429,890.514286A153.709714,153.709714,0,0,1,133.485714,736.804571L133.485714,287.195429A153.709714,153.709714,0,0,1,287.195429,133.485714z M287.195429,195.657143A91.538286,91.538286,0,0,0,195.657143,287.195429L195.657143,736.804571A91.538286,91.538286,0,0,0,287.195429,828.342857L736.804571,828.342857A91.538286,91.538286,0,0,0,828.342857,736.804571L828.342857,287.195429A91.538286,91.538286,0,0,0,736.804571,195.657143L287.195429,195.657143z" />
+                <GeometryDrawing Brush="{DynamicResource SystemButtonForegroundBrush}"
+                                 Geometry="F1 M1024,1024z M0,0z M287.195429,133.485714L736.804571,133.485714A153.709714,153.709714,0,0,1,890.514286,287.195429L890.514286,736.804571A153.709714,153.709714,0,0,1,736.804571,890.514286L287.195429,890.514286A153.709714,153.709714,0,0,1,133.485714,736.804571L133.485714,287.195429A153.709714,153.709714,0,0,1,287.195429,133.485714z M287.195429,195.657143A91.538286,91.538286,0,0,0,195.657143,287.195429L195.657143,736.804571A91.538286,91.538286,0,0,0,287.195429,828.342857L736.804571,828.342857A91.538286,91.538286,0,0,0,828.342857,736.804571L828.342857,287.195429A91.538286,91.538286,0,0,0,736.804571,195.657143L287.195429,195.657143z" />
             </DrawingGroup>
         </DrawingImage.Drawing>
     </DrawingImage>
-
-
     <DrawingImage x:Key="BiliBiliIconDrawingImage">
         <DrawingImage.Drawing>
             <DrawingGroup ClipGeometry="M0,0 V1024 H2332 V0 H0 Z">
-                <GeometryDrawing Brush="{DynamicResource ThemePink}" Geometry="F1 M2332,1024z M0,0z M1800.969308,
+                <GeometryDrawing Brush="{DynamicResource ThemePink}"
+                                 Geometry="F1 M2332,1024z M0,0z M1800.969308,
       322.460675C1807.110333,323.484179 1854.873861,312.964831 1856.920869,316.433372 1859.991382,
       320.982279 1881.371246,472.347174 1875.685113,473.370678 1870.112701,474.337321 1830.480346,
       483.378274 1830.480345,483.378275 1827.409832,462.794469 1801.48106,335.538784 1800.969308,
@@ -73,14 +75,12 @@
             </DrawingGroup>
         </DrawingImage.Drawing>
     </DrawingImage>
-
-
     <Style TargetType="Button" x:Key="Btn-Minimum">
-        <Setter Property="Width" Value="32"/>
-        <Setter Property="Height" Value="32"/>
-        <Setter Property="Padding" Value="4"/>
-        <Setter Property="Command" Value="{Binding Source={x:Static SystemCommands.MinimizeWindowCommand}}"/>
-        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
+        <Setter Property="Width" Value="32" />
+        <Setter Property="Height" Value="32" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="Command" Value="{Binding Source={x:Static SystemCommands.MinimizeWindowCommand}}" />
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -90,13 +90,13 @@
                             Padding="{TemplateBinding Padding}"
                             Background="Transparent"
                             x:Name="Border">
-                        <Image Source="{DynamicResource MinimumButtonDrawingImage}" VerticalAlignment="Center"/>
+                        <Image Source="{DynamicResource MinimumButtonDrawingImage}" VerticalAlignment="Center" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" TargetName="Border" 
-                                    Value="{DynamicResource SystemButtonHoverBackgroundBrush}"/>
-                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Background" TargetName="Border"
+                                    Value="{DynamicResource SystemButtonHoverBackgroundBrush}" />
+                            <Setter Property="Cursor" Value="Hand" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -105,12 +105,12 @@
     </Style>
 
     <Style TargetType="Button" x:Key="Btn-Close">
-        <Setter Property="Width" Value="32"/>
-        <Setter Property="Height" Value="32"/>
-        <Setter Property="Padding" Value="4"/>
+        <Setter Property="Width" Value="32" />
+        <Setter Property="Height" Value="32" />
+        <Setter Property="Padding" Value="4" />
         <Setter Property="Command" Value="{Binding 
-            Source={x:Static SystemCommands.CloseWindowCommand}}"/>
-        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
+            Source={x:Static SystemCommands.CloseWindowCommand}}" />
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -120,13 +120,13 @@
                             Padding="{TemplateBinding Padding}"
                             Background="Transparent"
                             x:Name="Border">
-                        <Image Source="{DynamicResource CloseButtonDrawingImage}" VerticalAlignment="Center"/>
+                        <Image Source="{DynamicResource CloseButtonDrawingImage}" VerticalAlignment="Center" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" TargetName="Border" 
-                                    Value="{DynamicResource SystemButtonHoverBackgroundBrush}"/>
-                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Background" TargetName="Border"
+                                    Value="{DynamicResource SystemButtonHoverBackgroundBrush}" />
+                            <Setter Property="Cursor" Value="Hand" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -136,13 +136,14 @@
 
 
     <Style TargetType="ToggleButton" x:Key="Btn-NormalMax">
-        <Setter Property="Width" Value="32"/>
-        <Setter Property="Height" Value="32"/>
-        <Setter Property="Padding" Value="4"/>
-        <Setter Property="IsChecked" Value="True"/>
-        <Setter Property="Command" Value="{Binding 
-            Source={x:Static SystemCommands.MaximizeWindowCommand}}"/>
-        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
+        <Setter Property="Width" Value="32" />
+        <Setter Property="Height" Value="32" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="IsChecked" Value="True" />
+        <Setter Property="Command"
+                Value="{Binding 
+            Source={x:Static SystemCommands.MaximizeWindowCommand}}" />
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
@@ -152,25 +153,27 @@
                             Padding="{TemplateBinding Padding}"
                             Background="Transparent"
                             x:Name="Border">
-                        <Image x:Name="Image" Source="{DynamicResource MaximizeButtonDrawingImage}" VerticalAlignment="Center"/>
+                        <Image x:Name="Image" Source="{DynamicResource MaximizeButtonDrawingImage}"
+                               VerticalAlignment="Center" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" TargetName="Border" 
-                                    Value="{DynamicResource SystemButtonHoverBackgroundBrush}"/>
-                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Background" TargetName="Border"
+                                    Value="{DynamicResource SystemButtonHoverBackgroundBrush}" />
+                            <Setter Property="Cursor" Value="Hand" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="Image" Property="Source"
-                                    Value="{DynamicResource NormalButtonDrawingImage}"/>
+                                    Value="{DynamicResource NormalButtonDrawingImage}" />
 
-                            <Setter Property="Command" Value="{Binding Source={x:Static SystemCommands.RestoreWindowCommand}}"/>
+                            <Setter Property="Command"
+                                    Value="{Binding Source={x:Static SystemCommands.RestoreWindowCommand}}" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="False">
                             <Setter TargetName="Image" Property="Source"
-                                    Value="{DynamicResource MaximizeButtonDrawingImage}"/>
-                            <Setter Property="Command" 
-                                    Value="{Binding Source={x:Static SystemCommands.MaximizeWindowCommand}}"/>
+                                    Value="{DynamicResource MaximizeButtonDrawingImage}" />
+                            <Setter Property="Command"
+                                    Value="{Binding Source={x:Static SystemCommands.MaximizeWindowCommand}}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -180,33 +183,33 @@
 
 
     <Style TargetType="ListBoxItem" x:Key="MainNavigationItemContainerStyle">
-        <Setter Property="OverridesDefaultStyle" Value="True"/>
-        <Setter Property="SnapsToDevicePixels" Value="True"/>
-        <Setter Property="Foreground" Value="{DynamicResource MainNavigationButtonForegroundBrush}"/>
-        <Setter Property="Height" Value="48"/>
-        <Setter Property="FontSize" Value="12"/>
-        <Setter Property="Margin" Value="0,18,0,0"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Foreground" Value="{DynamicResource MainNavigationButtonForegroundBrush}" />
+        <Setter Property="Height" Value="48" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Margin" Value="0,18,0,0" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
                     <Border Background="Transparent">
-                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource ThemePink}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource ThemePink}" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="IsMouseOver" Value="True"/>
-                                <Condition Property="IsSelected" Value="False"/>
+                                <Condition Property="IsMouseOver" Value="True" />
+                                <Condition Property="IsSelected" Value="False" />
                             </MultiTrigger.Conditions>
                             <MultiTrigger.Setters>
-                                <Setter Property="Foreground" Value="{DynamicResource ThemePink}"/>
-                                <Setter Property="Cursor" Value="Hand"/>
+                                <Setter Property="Foreground" Value="{DynamicResource ThemePink}" />
+                                <Setter Property="Cursor" Value="Hand" />
                             </MultiTrigger.Setters>
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
