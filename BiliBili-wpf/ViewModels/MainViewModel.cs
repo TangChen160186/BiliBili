@@ -9,6 +9,9 @@ public partial class MainNavigationItem : ObservableObject
 
     [ObservableProperty] private string _path;
     public ObservableCollection<string>? SubNavigationItems { get; set; }
+
+    [ObservableProperty]
+    private string _currentSubNavigationItem;
 }
 
 public partial class MainViewModel : ObservableObject
@@ -60,5 +63,9 @@ public partial class MainViewModel : ObservableObject
                                  480 193.621333,480A320,320,0,0,1,480.085333,193.578667L480,192 480,117.333333A32,32,0,0,1,512,85.333333z M512,256A256,256,0,1,0,512,768A256,256,0,0,0,512,256z M512,
                                  341.333333A170.666667,170.666667,0,1,1,512,682.666667A170.666667,170.666667,0,0,1,512,341.333333z"
         }
+
     ];
+
+    [ObservableProperty]
+    public MainNavigationItem _currentMainNavigationItem;
 }

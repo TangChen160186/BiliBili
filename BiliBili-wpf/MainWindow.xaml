@@ -4,11 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:BiliBili_wpf.ViewModels"
+        xmlns:controls="clr-namespace:BiliBili_wpf.Controls"
         mc:Ignorable="d"
         Title="MainWindow" MinHeight="658" MinWidth="1080" Height="658" Width="1080"
         Background="{DynamicResource WindowBackgroundBrush}"
         d:DataContext="{d:DesignInstance Type=viewModels:MainViewModel, IsDesignTimeCreatable=True}"
         ResizeMode="CanResize">
+
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="80" 
                       NonClientFrameEdges="None" 
@@ -25,6 +27,15 @@
                       Fill="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=Foreground}"
                       Stretch="Fill"/>
                 <TextBlock Text="{Binding Name}" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" 
+                           Margin="0,4,0,0"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="SubNavigationDataTemplate">
+            <StackPanel>
+                <TextBlock Text="{Binding .}" 
                            HorizontalAlignment="Center" 
                            VerticalAlignment="Center" 
                            Margin="0,4,0,0"/>
@@ -49,7 +60,8 @@
                              Background="Transparent"
                              BorderThickness="0" 
                              ItemContainerStyle="{DynamicResource MainNavigationItemContainerStyle}"
-                             ItemTemplate="{StaticResource MainNavigationDataTemplate}"/>
+                             ItemTemplate="{StaticResource MainNavigationDataTemplate}"
+                             SelectedItem="{Binding CurrentMainNavigationItem}"/>
                 </Grid>
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
@@ -63,6 +75,12 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="40,0,0,0" Width="74" Source="{DynamicResource BiliBiliIconDrawingImage}"/>
+                            <controls:IndicatorListBox ItemsSource="{Binding CurrentMainNavigationItem.SubNavigationItems}"
+                                                       Background="Transparent"
+                                                       BorderThickness="0" 
+                                                       ItemContainerStyle="{DynamicResource SubNavigationItemContainerStyle}"
+                                                       ItemTemplate="{StaticResource SubNavigationDataTemplate}"
+                                                       SelectedItem="{Binding CurrentMainNavigationItem.CurrentSubNavigationItem}"/>
                         </StackPanel>
                         <StackPanel Grid.Column="1" Orientation="Horizontal" >
                             <Button Style="{DynamicResource Btn-Minimum}" Margin="0,0,8,0"/>
