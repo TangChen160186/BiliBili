@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:BiliBili_wpf.ViewModels"
-        xmlns:controls="clr-namespace:BiliBili_wpf.Controls"
         mc:Ignorable="d"
         Title="MainWindow" MinHeight="658" MinWidth="1080" Height="658" Width="1080"
         Background="{DynamicResource WindowBackgroundBrush}"
@@ -20,7 +19,7 @@
     </WindowChrome.WindowChrome>
     <Window.Resources>
         <DataTemplate x:Key="MainNavigationDataTemplate" DataType="{x:Type viewModels:MainNavigationItem}">
-            <StackPanel>
+            <StackPanel HorizontalAlignment="Left">
                 <Path Data="{Binding Path}" 
                       Width="26" 
                       Height="26" 
@@ -34,12 +33,9 @@
         </DataTemplate>
 
         <DataTemplate x:Key="SubNavigationDataTemplate">
-            <StackPanel>
-                <TextBlock Text="{Binding .}" 
-                           HorizontalAlignment="Center" 
-                           VerticalAlignment="Center" 
-                           Margin="0,4,0,0"/>
-            </StackPanel>
+            <TextBlock Text="{Binding .}" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"/>
         </DataTemplate>
     </Window.Resources>
     <Window.Template>
@@ -55,7 +51,8 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <ListBox ItemsSource="{Binding MainNavigationItems}"
+                    <ListBox Margin="0,20,0,0"
+                             ItemsSource="{Binding MainNavigationItems}"
                              Grid.Row="1" 
                              Background="Transparent"
                              BorderThickness="0" 
@@ -75,12 +72,19 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="40,0,0,0" Width="74" Source="{DynamicResource BiliBiliIconDrawingImage}"/>
-                            <controls:IndicatorListBox ItemsSource="{Binding CurrentMainNavigationItem.SubNavigationItems}"
+                            <ListBox Margin="36,0,0,0"
+                                ItemsSource="{Binding CurrentMainNavigationItem.SubNavigationItems}"
                                                        Background="Transparent"
                                                        BorderThickness="0" 
                                                        ItemContainerStyle="{DynamicResource SubNavigationItemContainerStyle}"
                                                        ItemTemplate="{StaticResource SubNavigationDataTemplate}"
-                                                       SelectedItem="{Binding CurrentMainNavigationItem.CurrentSubNavigationItem}"/>
+                                                       SelectedItem="{Binding CurrentMainNavigationItem.CurrentSubNavigationItem}">
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                            </ListBox>
                         </StackPanel>
                         <StackPanel Grid.Column="1" Orientation="Horizontal" >
                             <Button Style="{DynamicResource Btn-Minimum}" Margin="0,0,8,0"/>
