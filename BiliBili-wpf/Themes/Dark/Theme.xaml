@@ -8,6 +8,6 @@
     <SolidColorBrush Color="#a2a7ae" x:Key="MainNavigationButtonForegroundBrush"/>
     <SolidColorBrush Color="#e7e9eb" x:Key="SubNavigationItemContainerStyleForegroundBrush"/>
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/;component/Themes/Controls/ImageDraw.xaml"/>
+        <ResourceDictionary Source="/BiliBili-wpf;component/Themes/Controls/ImageDraw.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

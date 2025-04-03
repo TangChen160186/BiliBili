@@ -1,13 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <TargetFramework>net9.0-windows</TargetFramework>
     <RootNamespace>BiliBili_wpf</RootNamespace>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Themes\Assets\iconfont.ttf" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BiliBili-ViewModel\BiliBili-ViewModel.csproj" />
@@ -46,6 +50,10 @@
 
   <ItemGroup>
     <PackageReference Include="XamlFlair.WPF" Version="1.2.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Themes\Assets\iconfont.ttf" />
   </ItemGroup>
 
 </Project>

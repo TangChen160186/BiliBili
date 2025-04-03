@@ -11,96 +11,95 @@
         ResizeMode="CanResize">
 
     <WindowChrome.WindowChrome>
-        <WindowChrome CaptionHeight="80" 
-                      NonClientFrameEdges="None" 
-                      ResizeBorderThickness="5" 
+        <WindowChrome CaptionHeight="80"
+                      NonClientFrameEdges="None"
+                      ResizeBorderThickness="5"
                       GlassFrameThickness="1"
                       UseAeroCaptionButtons="False" />
     </WindowChrome.WindowChrome>
     <Window.Resources>
         <DataTemplate x:Key="MainNavigationDataTemplate" DataType="{x:Type viewModels:MainNavigationItem}">
             <StackPanel HorizontalAlignment="Left">
-                <Path Data="{Binding Path}" 
-                      Width="26" 
-                      Height="26" 
-                      Fill="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=Foreground}"
-                      Stretch="Fill"/>
-                <TextBlock Text="{Binding Name}" 
-                           HorizontalAlignment="Center" 
-                           VerticalAlignment="Center" 
-                           Margin="0,4,0,0"/>
+                <TextBlock Text="{Binding Icon}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Foreground="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=Foreground}"
+                           FontSize="25" />
+                <TextBlock Text="{Binding Name}"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="0,8,0,0" />
             </StackPanel>
         </DataTemplate>
 
         <DataTemplate x:Key="SubNavigationDataTemplate">
-            <TextBlock Text="{Binding .}" 
-                       HorizontalAlignment="Center" 
-                       VerticalAlignment="Center"/>
+            <TextBlock Text="{Binding .}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" />
         </DataTemplate>
     </Window.Resources>
     <Window.Template>
         <ControlTemplate TargetType="Window">
             <Grid Background="{TemplateBinding Background}">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="64"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="64" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Grid Background="{DynamicResource MainNavigationBarBackGround}">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="80"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <ListBox Margin="0,20,0,0"
                              ItemsSource="{Binding MainNavigationItems}"
-                             Grid.Row="1" 
+                             Grid.Row="1"
                              Background="Transparent"
-                             BorderThickness="0" 
+                             BorderThickness="0"
                              ItemContainerStyle="{DynamicResource MainNavigationItemContainerStyle}"
                              ItemTemplate="{StaticResource MainNavigationDataTemplate}"
-                             SelectedItem="{Binding CurrentMainNavigationItem}"/>
+                             SelectedItem="{Binding CurrentMainNavigationItem}" />
                 </Grid>
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="80"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <Grid  >
+                    <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Orientation="Horizontal">
-                            <Image Margin="40,0,0,0" Width="74" Source="{DynamicResource BiliBiliIconDrawingImage}"/>
-                            <ListBox Margin="36,0,0,0"
+                            <TextBlock Margin="10,0,0,0" Foreground="{DynamicResource ThemePink}" FontSize="60"
+                                       Text="{StaticResource Icon-BiliBili}" VerticalAlignment="Center" />
+                            <ListBox
                                 ItemsSource="{Binding CurrentMainNavigationItem.SubNavigationItems}"
-                                                       Background="Transparent"
-                                                       BorderThickness="0" 
-                                                       ItemContainerStyle="{DynamicResource SubNavigationItemContainerStyle}"
-                                                       ItemTemplate="{StaticResource SubNavigationDataTemplate}"
-                                                       SelectedItem="{Binding CurrentMainNavigationItem.CurrentSubNavigationItem}">
+                                Background="Transparent"
+                                BorderThickness="0"
+                                ItemContainerStyle="{DynamicResource SubNavigationItemContainerStyle}"
+                                ItemTemplate="{StaticResource SubNavigationDataTemplate}"
+                                SelectedItem="{Binding CurrentMainNavigationItem.CurrentSubNavigationItem}">
                                 <ListBox.ItemsPanel>
                                     <ItemsPanelTemplate>
-                                        <StackPanel Orientation="Horizontal"/>
+                                        <StackPanel Orientation="Horizontal" />
                                     </ItemsPanelTemplate>
                                 </ListBox.ItemsPanel>
                             </ListBox>
                         </StackPanel>
-                        <StackPanel Grid.Column="1" Orientation="Horizontal" >
-                            <Button Style="{DynamicResource Btn-Minimum}" Margin="0,0,8,0"/>
-                            <ToggleButton Style="{DynamicResource Btn-NormalMax}"
+                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                            <Button Style="{DynamicResource Btn-Minimum}" Margin="0,0,8,0" />
+                            <ToggleButton Style="{DynamicResource ToggleBtn-NormalMax}"
                                           Margin="0,0,8,0" />
-                            <Button Style="{DynamicResource Btn-Close}" Margin="0,0,36,0"/>
+                            <Button Style="{DynamicResource Btn-Close}" Margin="0,0,36,0" />
                         </StackPanel>
                     </Grid>
                     <Border Grid.Row="1">
-                        <ContentPresenter/>
+                        <ContentPresenter />
                     </Border>
                 </Grid>
             </Grid>
         </ControlTemplate>
     </Window.Template>
-    <Grid Background="Transparent " HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+    <Grid Background="Transparent " HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Button HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Content="切换主题" Click="ButtonBase_OnClick"/>
     </Grid>
 </Window>
