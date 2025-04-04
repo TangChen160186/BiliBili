@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:BiliBili_wpf.ViewModels"
+        xmlns:views="clr-namespace:BiliBili_wpf.Views"
         mc:Ignorable="d"
         Title="MainWindow" MinHeight="658" MinWidth="1080" Height="658" Width="1080"
         Background="{DynamicResource WindowBackgroundBrush}"
@@ -31,9 +32,13 @@
         </DataTemplate>
 
         <DataTemplate x:Key="SubNavigationDataTemplate">
-            <TextBlock Text="{Binding .}"
+            <TextBlock Text="{Binding Name}"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center" />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:RecommendViewModel}">
+            <views:RecommendView/>
         </DataTemplate>
     </Window.Resources>
     <Window.Template>
@@ -49,6 +54,10 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
+                    <Button  VerticalAlignment="Center"
+                            HorizontalAlignment="Center" 
+                            Style="{DynamicResource Btn-ReturnBack}"
+                            Command="{Binding CurrentMainNavigationItem.ReturnBackCommand}"/>
                     <ListBox Margin="0,20,0,0"
                              ItemsSource="{Binding MainNavigationItems}"
                              Grid.Row="1"
@@ -100,6 +109,6 @@
         </ControlTemplate>
     </Window.Template>
     <Grid Background="Transparent " HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Button HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Content="切换主题" Click="ButtonBase_OnClick"/>
+        <ContentControl Content="{Binding CurrentMainNavigationItem.Current}"/>
     </Grid>
 </Window>

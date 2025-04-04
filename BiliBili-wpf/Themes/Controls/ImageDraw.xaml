@@ -8,6 +8,7 @@
     <system:String x:Key="Icon-Normal">&#xe651;</system:String>
     <system:String x:Key="Icon-Maxmize">&#xe692;</system:String>
     <system:String x:Key="Icon-BiliBili">&#xe629;</system:String>
+    <system:String x:Key="Icon-ReturnBtn">&#xe610;</system:String>
 
     <Style TargetType="Button" x:Key="Btn-SystemCommand">
         <Setter Property="Width" Value="32" />
@@ -174,6 +175,40 @@
                         <Trigger Property="IsMouseOver" Value="True" SourceName="Grid">
                             <Setter Property="Foreground" Value="{DynamicResource ThemePink}" />
                             <Setter Property="Cursor" Value="Hand" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style TargetType="Button" x:Key="Btn-ReturnBack">
+        <Setter Property="Background" Value="#2f3134"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Width" Value="34"/>
+        <Setter Property="Height" Value="34"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Border" CornerRadius="8" Background="{TemplateBinding Background}">
+                        <TextBlock x:Name="TextBlock" Text="{StaticResource Icon-ReturnBtn}" 
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="True" >
+                            <Setter Property="Background" Value="#2f3134" TargetName="Border"/>
+                            <Setter Property="Foreground" Value="#e7e9eb" TargetName="TextBlock"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False" >
+                            <Setter Property="Background" Value="Transparent" TargetName="Border"/>
+                            <Setter Property="Foreground" Value="#757a81" TargetName="TextBlock"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

@@ -19,7 +19,8 @@ public interface IThemeService
 public class ThemeService : IThemeService
 {
     private ThemeType _currentThemeType;
-
+    private readonly Dictionary<ThemeType, ResourceDictionary> _themeCache = new Dictionary<ThemeType, ResourceDictionary>();
+    private bool _firstLoad = true;
     public ThemeType CurrentTheme
     {
         get=>_currentThemeType;
@@ -33,8 +34,6 @@ public class ThemeService : IThemeService
         }
     }
 
-    private readonly Dictionary<ThemeType, ResourceDictionary> _themeCache = new Dictionary<ThemeType, ResourceDictionary>();
-    private bool _firstLoad = true;
     public void InitializeTheme()
     {
         if(!_firstLoad) return;

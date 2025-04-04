@@ -2,13 +2,10 @@
 using BiliBili_ViewModel.Services;
 using BiliBili_wpf.Services;
 using BiliBili_wpf.ViewModels;
+using BiliBili_wpf.ViewModels.Advance;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BiliBili_wpf;
-
-/// <summary>
-/// Interaction logic for App.xaml
-/// </summary>
 public partial class App : Application
 {
     public static IServiceProvider Services { get; private set; } = null!;
@@ -31,10 +28,19 @@ public partial class App : Application
     {
         // 注册哔哩哔哩API服务
         services.AddBiliBiliServices();
+
+
         services.AddSingleton<IThemeService,ThemeService>();
 
+        // Service
+        services.AddTransient<INavigationContainer, NavigationService>();
+
+
         // ViewModels
-        services.AddTransient<MainViewModel>();
+        services.AddSingleton<MainViewModel>();
+        services.AddSingleton<RecommendViewModel>();
+        services.AddSingleton<BigHitViewModel>();
+     
     }
 }
 

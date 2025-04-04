@@ -6,14 +6,12 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace BiliBili_wpf;
 
-public partial class MainWindow : Window
+public partial class MainWindow
 {
     public MainWindow()
     {
         InitializeComponent();
         DataContext = App.Services.GetRequiredService<MainViewModel>();
-        // 设置DataContext
-        // DataContext = App.Services.GetRequiredService<MainViewModel>();
         CommandBindings.Add(new CommandBinding(SystemCommands.MinimizeWindowCommand,
             (sender, e) => SystemCommands.MinimizeWindow(this)));
         CommandBindings.Add(new CommandBinding(SystemCommands.CloseWindowCommand,
@@ -26,7 +24,7 @@ public partial class MainWindow : Window
 
     private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
     {
-        var themeService = App.Services.GetRequiredService<IThemeService>();
-        themeService.CurrentTheme = themeService.CurrentTheme == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark;
+       var themeService = App.Services.GetRequiredService<IThemeService>();
+       themeService.CurrentTheme = themeService.CurrentTheme == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark;
     }
 }

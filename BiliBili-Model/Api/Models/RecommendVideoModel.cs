@@ -3,7 +3,7 @@
 namespace BiliBili_Model.Api.Models;
 
 public record RecommendVideoModel(
-    [property: JsonPropertyName("item")] IReadOnlyList<Item> Item,
+    [property: JsonPropertyName("item")] IReadOnlyList<RecommendVideo> Item,
     [property: JsonPropertyName("side_bar_column")]
     IReadOnlyList<SideBarColumn> SideBarColumn,
     [property: JsonPropertyName("business_card")]
@@ -153,7 +153,7 @@ public record Inline(
     long InlineBarrageSwitch
 );
 
-public record Item(
+public record RecommendVideo(
     [property: JsonPropertyName("id")] long Id,
     [property: JsonPropertyName("bvid")] string Bvid,
     [property: JsonPropertyName("cid")] long Cid,

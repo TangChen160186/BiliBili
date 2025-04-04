@@ -1,47 +1,71 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
+using BiliBili_wpf.ViewModels.Advance;
 using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 
 namespace BiliBili_wpf.ViewModels;
 
-public partial class MainNavigationItem : ObservableObject
+partial class BigHitViewModel: ObservableObject
+{
+ 
+}
+
+partial class SubNavigationItem: ObservableObject
+{
+    [ObservableProperty] private string _name;
+    public Type TargetPage { get; set; }
+}
+
+partial class MainNavigationItem : NavigationViewModel
 {
     [ObservableProperty] private string _name;
 
     [ObservableProperty] private string _icon;
-    public ObservableCollection<string>? SubNavigationItems { get; set; }
+    public ObservableCollection<SubNavigationItem> SubNavigationItems { get; set; }
 
-    [ObservableProperty] private string _currentSubNavigationItem;
+    [ObservableProperty] private SubNavigationItem _currentSubNavigationItem;
+
+    public MainNavigationItem(string name, string icon,IEnumerable<SubNavigationItem> subNavigationItems)
+    {
+        _name = name;
+        _icon = icon;
+        SubNavigationItems = new ObservableCollection<SubNavigationItem>(subNavigationItems);
+        CurrentSubNavigationItem = SubNavigationItems.FirstOrDefault();
+    }
+
+
+    partial void OnCurrentSubNavigationItemChanged(SubNavigationItem value)
+    {
+        Open(App.Services.GetService(value.TargetPage));
+    }
+
+    protected override void OnPropertyChanged(PropertyChangedEventArgs e)
+    {
+        base.OnPropertyChanged(e);
+        if (e.PropertyName == nameof(Current))
+        {
+            if(CurrentSubNavigationItem.GetType() != Current.GetType())
+                CurrentSubNavigationItem = SubNavigationItems.FirstOrDefault(e => e.TargetPage == Current.GetType());
+        }
+    }
 }
 
-public partial class MainViewModel : ObservableObject
+partial class MainViewModel : ObservableObject
 {
     public ObservableCollection<MainNavigationItem> MainNavigationItems { get; set; } =
     [
-        new()
-        {
-            Name = "首页", SubNavigationItems = ["直播", "推荐", "热门", "追番", "影视"], Icon = "\ue600"
-        },
-        new()
-        {
-            Name = "精选", SubNavigationItems = null, Icon = "\ue73b"
-        },
-        new()
-        {
-            Name = "动态", SubNavigationItems = ["综合"], Icon = "\ue621"
-        },
-        new()
-        {
-            Name = "我的", SubNavigationItems = null, Icon = "\ue723"
-        }
+        new("首页","\ue600",[
+            new SubNavigationItem {Name = "推荐",TargetPage = typeof(RecommendViewModel) },
+            new SubNavigationItem {Name = "热门",TargetPage = typeof(BigHitViewModel) },
+        ]),
+        new("精选", "\ue73b",[]),
+        new( "动态", "\ue621",[]),
+        new(  "我的", "\ue723",[]),
     ];
+    [ObservableProperty] private MainNavigationItem _currentMainNavigationItem;
 
-    [ObservableProperty] public MainNavigationItem _currentMainNavigationItem;
-
-
-    [RelayCommand]
-    void Test()
+    public MainViewModel()
     {
-        Console.WriteLine("faf");
+        CurrentMainNavigationItem = MainNavigationItems.FirstOrDefault();
     }
 }
